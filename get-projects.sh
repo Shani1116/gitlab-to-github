@@ -1,11 +1,18 @@
 #!/bin/bash
 
-git clone <git/URL>
+echo "Enter git clone URL: "
+read cloneURL
 
-cd <path/to/git/project/folder> 
+git clone $cloneURL
+
+path=${cloneURL%.git}
+dir=${path##*/}
+
+cd dir 
 
 for branch in `git branch -r | grep origin | grep -v HEAD`; 
   do
    git branch --track ${branch#remotes/origin/} $branch
    echo "----$branch cloned----"
   done
+  
