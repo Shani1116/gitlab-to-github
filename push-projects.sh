@@ -17,5 +17,5 @@ for branch in `git branch`;
     name=${branch##origin/}
 
     git push origin HEAD:${name}
-    echo "----$branch pushed----"
+    echo "-----$branch pushed-----"
   done  
